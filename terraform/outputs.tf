@@ -1,14 +1,14 @@
 output "cloudfront_url" {
   description = "HTTPS URL of the CloudFront-served static site"
-  value       = "https://${aws_cloudfront_distribution.site.domain_name}"
+  value       = module.site.cloudfront_url
 }
 
 output "cloudfront_distribution_id" {
   description = "CloudFront distribution ID"
-  value       = aws_cloudfront_distribution.site.id
+  value       = module.site.distribution_id
 }
 
 output "origin_bucket" {
-  description = "Name of the private origin S3 bucket"
-  value       = aws_s3_bucket.site.id
+  description = "Private origin S3 bucket"
+  value       = module.site.bucket
 }
